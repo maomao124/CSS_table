@@ -1,0 +1,136 @@
+/*
+  Project name(项目名称)：CSS_table 
+  File name(文件名): t
+  Author(作者）: mao
+  Author QQ：1296193245
+  GitHub：https://github.com/maomao124/
+  Date(创建日期)： 2022/1/27 
+  Time(创建时间)： 20:14
+  Version(版本): 1.0
+  Description(描述)：
+  table-layout：设置表格的布局算法，布局算法有两种，分别为固定表格布局算法和自动表格布局算法；
+border-collapse：设置表格中单元格的边框是合并在一起还是按照标准的 HTML 样式分开；
+border-spacing：设置当表格边框分开时，相邻两个边框在横向和纵向上的间距；
+caption-side：设置表格标题相对于表格的位置；
+empty-cells：设置当表格的单元格中没有内容时，是否显示该单元格的边框。
+
+1. table-layout
+table-layout 属性用来设置表格布局时所用的布局算法，属性的可选值如下：
+值	        描述
+automatic	默认值，自定表格布局，表示表格中每列的宽度视单元格中的内容而定
+fixed	固定表格布局，表示表格的宽度由列宽度、单元格边框、单元格之间的间距等因素而定
+inherit	从父元素继承 table-layout 属性的值
+1) 固定表格布局
+固定表格布局允许浏览器更快地对表格进行布局。在固定表格布局中，表格的水平宽度仅取决于列宽度、表格边框宽度、单元格间距等因素，
+与单元格中的内容无关。也就是说，表格中超出表格宽度的内容可能会被忽略。
+2) 自动表格布局
+在自动表格布局中，列的宽度视单元格中的内容（没有换行的最宽内容）而定，也就是说如果某个单元格的宽度为 100px，
+但单元格中内容所占据的宽度要大于 100px，这就会导致单元格中的内容将单元格撑大。正是因为这一特点，此种算法可能会比较慢。
+
+
+2. border-collapse
+border-collapse 属性用来设置是否合并表格中相邻的边框，属性的可选值如下：
+值	        描述
+separate	默认值，相邻的两个边框是分开的，使用它不会忽略 border-spacing 和 empty-cells 属性
+collapse	相邻的两个边框会合并为一个单一的边框，使用它会忽略 border-spacing 和 empty-cells 属性
+inherit	从父元素继承 border-collapse 属性的值
+
+
+3. border-spacing
+border-spacing 属性可以设置相邻单元格边框之间的距离（仅在 border-collapse 属性为 separate 时才有效），
+它的效果等同于<table>标签的 cellspacing 属性（即border-spacing:0;等同于cellspacing="0"）。border-spacing 属性的语法格式如下：
+border-spacing: length length;
+参数 length 由数值和单位组成，表示相邻单元格边框之间的距离，其可选值如下：
+值	    描述
+length	以数值加单位的形式设置相邻边框之间的间距，例如 2px，不允许使用负值。如果只定义一个 length 参数，
+        那么这个值将同时作用于横向和纵向的间距；如果同时定义两个 length 参数，
+        那么第一个 length 参数表示相邻边框的横向间距，第二个 length 参数表示相邻边框的纵向间距
+inherit	从父元素继承 border-spacing 属性的值
+
+
+4. caption-side
+caption-side 属性可以设置表格标题的位置，属性的可选值如下：
+值	    描述
+top	默认值，将表格标题定位在表格正上方
+bottom	将表格标题定位在表格正下方
+inherit	从父元素继承 caption-side 属性的值
+
+
+5. empty-cells
+empty-cells 属性用来设置当某个单元格中没有内容时，是否显示这个空单元格（仅在 border-collapse 属性为 separate 时才有效），属性的可选值如下：
+值	    描述
+hide	隐藏空单元格周围的边框
+show	默认值，显示空单元格周围的边框
+inherit	从父元素继承 empty-cells 属性的值
+ */
+
+
+table {
+    float: left;
+}
+
+.t1 {
+    table-layout: auto;
+}
+
+.t2 {
+    table-layout: fixed;
+}
+
+
+table {
+    float: left;
+}
+
+.table_one {
+    border-collapse: separate;
+}
+
+.table_two {
+    margin-left: 20px;
+    border-collapse: collapse;
+}
+
+
+table {
+    float: left;
+}
+
+.table_t2_one {
+    border-spacing: 15px 10px;
+}
+
+.table_t2_two {
+    margin-left: 20px;
+    border-spacing: 20px;
+}
+
+
+table {
+    float: left;
+}
+
+.table_t3_one {
+    empty-cells: hide;
+}
+
+.table_t3_two {
+    margin-left: 20px;
+    empty-cells: show;
+}
+
+
+table {
+    float: left;
+}
+
+.table_t4_one {
+    caption-side: top;
+}
+
+.table_t4_two {
+    margin-left: 20px;
+    caption-side: bottom;
+}
+    
+    
